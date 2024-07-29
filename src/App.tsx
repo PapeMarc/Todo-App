@@ -4,10 +4,12 @@ import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 
 function App(){
-  const [todos, setTodos] = useState([{text: "Do something.", done: false}, {text: "Do something else.", done: false}]);
+  const [todos, setTodos] = useState([/*{text: "Do something.", done: false}, {text: "Do something else.", done: false}*/]);
 
   return <div className="App">
-    <TodoInput/>
+    <TodoInput onAddClicked={(todoText : string) => {
+      setTodos(oldTodos => [...oldTodos, {text: todoText, done: false}]);
+    }}/>
     <TodoList todos={todos}/>
   </div>;
 }

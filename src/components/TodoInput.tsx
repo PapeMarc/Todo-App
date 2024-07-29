@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function TodoInput(props){
+export default function TodoInput(props : any){
     const[todoText, setTodoText] = useState("");
 
     return <div>
@@ -9,7 +9,7 @@ export default function TodoInput(props){
             setTodoText(event.target.value);
         }}></input>
         <button onClick={() => {
-            
+            props.onAddClicked && props.onAddClicked(todoText);
         }}>Add</button>
     </div>; 
 }

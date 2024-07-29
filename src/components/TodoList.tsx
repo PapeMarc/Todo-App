@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export default function TodoInput(props : any){
+export default function TodoList(props : any){
     const todos = props.todos;
 
     return (
         <div>
-            {todos.map(todo => (
-                <div>{todo.text}</div>
+            {todos.map((todo : {text : string, done : boolean}, index : number) => (
+                <div key={index}>{todo.text}</div>
             ))}
         </div>
     ); 
