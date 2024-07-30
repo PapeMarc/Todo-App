@@ -14,7 +14,7 @@ function App(props: any) {
    Mount-Vorgangs aufgerufen.*/
    useEffect(() => {
       load().then((initialTodos) => setTodos(initialTodos));
-   }, []);
+   }, [todos.length]);
 
    const appCss = css`
     display: flex;
