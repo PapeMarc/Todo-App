@@ -3,9 +3,10 @@ import { useState } from "react";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import { css } from "@emotion/css";
+import { Todo } from "./components/types";
 
 function App() {
-   const [todos, setTodos] = useState<{ text: string, done: boolean, id: string }[]>([]);
+   const [todos, setTodos] = useState<Todo[]>([]);
    const appCss = css`
     display: flex;
     flex-direction: column;
@@ -20,7 +21,7 @@ function App() {
       }} />
       <TodoList
          todos={todos}
-         onDoneChange={(done, id) => {
+         onDoneChange={(done: boolean, id: string) => {
             setTodos((oldTodos) => oldTodos.map((todo) => (todo.id === id ? Object.assign(todo, { done }) : todo)))
          }} />
    </div>;

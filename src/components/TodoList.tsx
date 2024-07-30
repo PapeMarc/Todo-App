@@ -1,5 +1,6 @@
 import { css, cx } from "@emotion/css";
 import { flexColumn, flexRow, flexCenter } from "../common-styles";
+import { Todo } from "./types";
 
 export default function TodoList(props: any) {
    const todos = props.todos;
@@ -11,8 +12,8 @@ font-size: 16px;
    return (
       <div className={cx(rootCss, flexColumn, flexCenter)}>
          {todos
-            .filter((todo) => !todo.done)
-            .map((todo) => (
+            .filter((todo: Todo) => !todo.done)
+            .map((todo: Todo) => (
                <div key={todo.id} className={cx(flexRow, flexCenter)}>
                   <input
                      title="doneCheckbox"
@@ -28,8 +29,8 @@ font-size: 16px;
             )}
          <hr style={{ width: "100%" }} />
          {todos
-            .filter((todo) => todo.done)
-            .map((todo) => (
+            .filter((todo: Todo) => todo.done)
+            .map((todo: Todo) => (
                <div key={todo.id} className={cx(flexRow, flexCenter)}>
                   <input
                      title="doneCheckbox"
