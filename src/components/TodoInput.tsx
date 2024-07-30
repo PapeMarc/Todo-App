@@ -8,7 +8,7 @@ export default function TodoInput(props : any){
         <input title="inputTodoText" type="text" value={todoText} onChange={event => {
             setTodoText(event.target.value);
         }}></input>
-        <button onClick={() => {
+        <button name="addTodoButton" onClick={() => {
             props.onAddClicked && props.onAddClicked(todoText);
         }}>Add</button>
     </div>; 

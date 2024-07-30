@@ -1,13 +1,18 @@
-import { useState } from "react";
+import {css, cx} from "@emotion/css";
+import {flexColumn, flexRow, flexCenter} from "../common-styles";
 
 export default function TodoList(props : any){
     const todos = props.todos;
 
+    const rootCss = css`
+    font-size: 16px;
+    `;
+
     return (
-        <div>
+        <div className={cx(rootCss, flexColumn, flexCenter)}>
             {todos.map(
                 (todo : {text : string, done : boolean}, index : number) => (
-                    <div key={index}>
+                    <div key={index} className={cx(flexRow, flexCenter)}>
                         <input 
                         title="doneCheckbox" 
                         type="checkbox" 
