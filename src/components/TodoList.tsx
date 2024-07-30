@@ -10,20 +10,39 @@ font-size: 16px;
 
    return (
       <div className={cx(rootCss, flexColumn, flexCenter)}>
-         {todos.map(
-            (todo: { text: string, done: boolean }, index: number) => (
-               <div key={index} className={cx(flexRow, flexCenter)}>
+         {todos
+            .filter((todo) => !todo.done)
+            .map((todo) => (
+               <div key={todo.id} className={cx(flexRow, flexCenter)}>
                   <input
                      title="doneCheckbox"
                      type="checkbox"
-                     onChange={event => {
+                     checked={todo.done}
+                     onChange={(event) => {
                         const checked = event.target.checked;
-                        props.onDoneChange && props.onDoneChange(checked, index);
+                        props.onDoneChange && props.onDoneChange(checked, todo.id);
                      }}></input>
                   <span style={{ textDecoration: todo.done ? "line-through" : "none" }}>{todo.text}</span>
                </div>
             )
-         )}
+            )}
+         <hr style={{ width: "100%" }} />
+         {todos
+            .filter((todo) => todo.done)
+            .map((todo) => (
+               <div key={todo.id} className={cx(flexRow, flexCenter)}>
+                  <input
+                     title="doneCheckbox"
+                     type="checkbox"
+                     checked={todo.done}
+                     onChange={(event) => {
+                        const checked = event.target.checked;
+                        props.onDoneChange && props.onDoneChange(checked, todo.id);
+                     }}></input>
+                  <span style={{ textDecoration: todo.done ? "line-through" : "none" }}>{todo.text}</span>
+               </div>
+            )
+            )}
       </div>
    );
 }
