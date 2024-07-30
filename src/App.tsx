@@ -16,8 +16,8 @@ function App() {
    return <div className={appCss}>
       <TodoInput onAddClicked={(todoText: string) => {
          setTodos(
-            (oldTodos) => [...oldTodos, { text: todoText, done: false, id: (Date.now() * Math.random()).toString() }
-            ]);
+            (oldTodos) => [...oldTodos, { text: todoText, done: false, id: (Date.now() * Math.random()).toString() }]
+         );
       }} />
       <TodoList
          todos={todos}

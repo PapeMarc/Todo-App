@@ -33,7 +33,7 @@ font-size: 16px;
 function TodoEntryList(props: any) {
    const todos = props.todos;
    return (
-      <div>
+      <>
          {todos
             .filter(props.filterFunction)
             .map((todo: Todo) => (
@@ -51,5 +51,5 @@ function TodoEntryList(props: any) {
                   <button onClick={() => props.onTodoDelete && props.onTodoDelete(todo.id)}>Delete</button>
                </div>
             ))}
-      </div>)
+      </>)
 }
