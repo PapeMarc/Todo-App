@@ -32,24 +32,33 @@ font-size: 16px;
 
 function TodoEntryList(props: any) {
    const todos = props.todos;
-   return (
-      <>
-         {todos
-            .filter(props.filterFunction)
-            .map((todo: Todo) => (
-               <div key={todo.id} className={cx(flexRow, flexCenter)}>
-                  <input
-                     title="doneCheckbox"
-                     type="checkbox"
-                     checked={todo.done}
-                     onChange={(event) => {
-                        const checked = event.target.checked;
-                        props.onDoneChange && props.onDoneChange(checked, todo.id);
-                     }}></input>
-                  <span style={{ textDecoration: todo.done ? "line-through" : "none" }}>{todo.text}</span>
-                  <div style={{ flex: 1 }}></div>
-                  <button onClick={() => props.onTodoDelete && props.onTodoDelete(todo.id)}>Delete</button>
-               </div>
-            ))}
-      </>)
+   return (<>
+      {todos
+         .filter(props.filterFunction)
+         .map((todo: Todo) => (
+            <div key={todo.id} className={cx(flexRow, flexCenter)}>
+
+               <input
+                  title="doneCheckbox"
+                  type="checkbox"
+                  checked={todo.done}
+                  onChange={(event) => {
+                     const checked = event.target.checked;
+                     props.onDoneChange && props.onDoneChange(checked, todo.id);
+                  }}
+               />
+
+               <span style={{ textDecoration: todo.done ? "line-through" : "none" }}>
+                  {todo.text}
+               </span>
+
+               <div style={{ flex: 1 }} />
+
+               <button onClick={() => props.onTodoDelete && props.onTodoDelete(todo.id)}>
+                  Delete
+               </button>
+
+            </div>
+         ))}
+   </>)
 }
