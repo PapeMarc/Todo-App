@@ -23,6 +23,9 @@ function App() {
          todos={todos}
          onDoneChange={(done: boolean, id: string) => {
             setTodos((oldTodos) => oldTodos.map((todo) => (todo.id === id ? Object.assign(todo, { done }) : todo)))
+         }}
+         onTodoDelete={(todoId: string) => {
+            setTodos((oldTodos) => oldTodos.filter((todo) => todo.id !== todoId));
          }} />
    </div>;
 }
