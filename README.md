@@ -31,7 +31,7 @@ It was created by following a tutorial as part of a learning exercise.
 ## Setup & Usage
 1. Clone this repository:
    ```bash
-   git clone https://github.com/USERNAME/REPOSITORY.git
+   git clone https://github.com/PapeMarc/Todo-App.git
    cd REPOSITORY
    ```
 
