@@ -11,7 +11,7 @@ It was created by following a tutorial as part of a learning exercise.
 - State persistence using **localStorage**
 - Styled with CSS and Emotion
 
-## Project Structure
+## Overview of files in /src
 ```
 ├── App.tsx               # Main application logic
 ├── TodoInput.tsx         # Input component for adding todos
